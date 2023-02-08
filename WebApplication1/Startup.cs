@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebApplication1.Context;
+using WebApplication1.Source.Svc;
 
 namespace WebApplication1
 {
@@ -68,6 +69,8 @@ namespace WebApplication1
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
             services.AddMemoryCache();
+            services.AddScoped<IStudentService, StudentService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

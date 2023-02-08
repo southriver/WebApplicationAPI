@@ -8,15 +8,11 @@ using WebApplication1.Source.Db;
 
 namespace WebApplication1.Source.Svc
 {
-    public class StudentService
+    public class StudentService : IStudentService
     {
         private UniversityContext _context;
         private readonly IMemoryCache _memoryCache;
 
-        public StudentService(UniversityContext context)
-        {
-            _context = context;
-        }
         public StudentService(UniversityContext context, IMemoryCache memoryCache)
         {
             _context = context;

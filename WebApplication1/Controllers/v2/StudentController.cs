@@ -15,13 +15,11 @@ namespace WebApplication1.Controllers.v2
     [ApiVersion("2.0")]
     public class StudentController : ControllerBase
     {
-        private UniversityContext _context;
-        private StudentService _studentService;
+        private IStudentService _studentService;
 
-        public StudentController(UniversityContext context)
+        public StudentController(IStudentService studentService)
         {
-            _context = context;
-            _studentService = new StudentService(_context);
+            _studentService = studentService;
         }
 
         // GET: /<StudentController>
