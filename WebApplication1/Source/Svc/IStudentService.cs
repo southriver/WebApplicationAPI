@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using WebApplication1.Model;
 using WebApplication1.Source.Db;
+using System.Threading.Tasks;
 
 namespace WebApplication1.Source.Svc
 {
@@ -18,5 +19,8 @@ namespace WebApplication1.Source.Svc
         public int insertStudent(Student student);
 
         public double calculateGPA(string tcKimlik);
+
+        public Task<double>  calculateGPAAsync(string tcKimlik);
+
     }
 }

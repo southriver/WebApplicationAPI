@@ -26,6 +26,11 @@ namespace WebApplication1.Controllers
             _config = config;
         }
 
+        /// <summary>
+        /// Authenticates user and generates JWT token
+        /// </summary>
+        /// <param name="userLogin"></param>
+        /// <returns></returns>
         [HttpPost]
         [HttpPost("Login")]
         public IActionResult Login([FromBody] UserLoginDto userLogin)

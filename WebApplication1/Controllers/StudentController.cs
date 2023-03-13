@@ -5,6 +5,7 @@ using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using WebApplication1.Context;
 using WebApplication1.Model;
 using WebApplication1.Model.Dto;
@@ -34,7 +35,6 @@ namespace WebApplication1.Controllers
             return ret;
         }
 
-        [HttpPost]
         [HttpPost("GetAllWithPaging")]
         public List<StudentDto> GetWithPaging(QueryWithPagingDto query)
         {
@@ -47,7 +47,6 @@ namespace WebApplication1.Controllers
             return ret;
         }
 
-        [HttpPost]
         [HttpPost("GetAllWithCaching")]
         public List<StudentDto> GetAllWithCaching(QueryWithPagingDto query)
         {
@@ -113,6 +112,24 @@ namespace WebApplication1.Controllers
             }
             return ret;
         }
+
+        [HttpPost("CalculateGPAAsync")]        
+        [Authorize]
+        public async Task<StudentGPAResultDto> CalculateGPAAsync([FromBody] StudentGPAQueryDto gpaQuery)
+        {
+            StudentGPAResultDto ret = new StudentGPAResultDto();
+            try
+            {
+                ret.GPA = await _studentService.calculateGPAAsync(gpaQuery.TCKimlik);                
+            }
+            catch (Exception ex)
+            {
+                ret.Status = "FAILURE";
+                ret.Message = ex.Message;
+            }
+            return ret;
+        }
+
 
         private StudentDto createStudentDto(Student student)
         {

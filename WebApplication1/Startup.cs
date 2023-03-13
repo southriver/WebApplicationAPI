@@ -69,7 +69,10 @@ namespace WebApplication1
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
             services.AddMemoryCache();
+            // add services here
+            services.AddScoped <ICourseService, CourseService>();
             services.AddScoped<IStudentService, StudentService>();
+
 
         }
 

@@ -18,7 +18,6 @@ namespace WebApplication1.Model.Dto
                 _pageSize = (value > maxPageSize) ? maxPageSize : value;
             }
         }
-
     }
         public class StudentDto
     {

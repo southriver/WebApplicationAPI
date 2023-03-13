@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using WebApplication1.Context;
 using WebApplication1.Model;
 using WebApplication1.Source.Db;
@@ -67,6 +68,12 @@ namespace WebApplication1.Source.Svc
             }
             var rnd = new Random();
             return rnd.NextDouble() * 4;
+        }
+
+        public async Task<double> calculateGPAAsync(string tcKimlik)
+        {
+            // await callAnotherService
+            throw new NotImplementedException();
         }
     }
 }
