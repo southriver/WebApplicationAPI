@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{34FB75D9-078A-45EF-8BA5-7F8397848702}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationAPI", "WebApplication1\WebApplicationAPI.csproj", "{34FB75D9-078A-45EF-8BA5-7F8397848702}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "TestProject1\TestProject1.csproj", "{4999FCBB-89D3-4919-82D0-29538CAD9A8C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{E96AE2C7-F765-46FA-A0A7-191E0E77B2C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClientToCallARestService", "ConsoleApp1\HttpClientToCallARestService.csproj", "{E96AE2C7-F765-46FA-A0A7-191E0E77B2C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueSender", "QueueSender\QueueSender.csproj", "{DBE2E688-B1DC-408A-920E-2F132DFDFEBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{E96AE2C7-F765-46FA-A0A7-191E0E77B2C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E96AE2C7-F765-46FA-A0A7-191E0E77B2C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E96AE2C7-F765-46FA-A0A7-191E0E77B2C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBE2E688-B1DC-408A-920E-2F132DFDFEBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBE2E688-B1DC-408A-920E-2F132DFDFEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBE2E688-B1DC-408A-920E-2F132DFDFEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBE2E688-B1DC-408A-920E-2F132DFDFEBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

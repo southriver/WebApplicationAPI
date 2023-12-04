@@ -65,35 +65,35 @@ namespace WebApplication1.Controllers
             return Ok();
         }
 
-        // updates a course with given id
-        [HttpPut]
-        public IActionResult Put([FromBody] CourseDto courseDto)
-        {
-            if (courseDto.Id== 0) {
-                return BadRequest("Cant update a course with no id");
-            }
-            if (courseDto != null)
-            {
-                using (var scope = new TransactionScope())
-                {
-                    try
-                    {
-                        _courseService.updateCourse(createCourse(courseDto));
-                    }
-                    catch (Exception ex)
-                    {
-                        return BadRequest(ex);
-                    }
-                    scope.Complete();
-                    return new OkResult();
-                }
-            }
-            return new NoContentResult();
-        }
+        //// updates a course with given id
+        //[HttpPut]
+        //public IActionResult Put([FromBody] CourseDto courseDto)
+        //{
+        //    if (courseDto.Id == 0)
+        //    {
+        //        return BadRequest("Cant update a course with no id");
+        //    }
+        //    if (courseDto != null)
+        //    {
+        //        using (var scope = new TransactionScope())
+        //        {
+        //            try
+        //            {
+        //                _courseService.updateCourse(createCourse(courseDto));
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                return BadRequest(ex);
+        //            }
+        //            scope.Complete();
+        //            return new OkResult();
+        //        }
+        //    }
+        //    return new NoContentResult();
+        //}
 
         // courseCode  = S  => 
 
-        [HttpPost]
         [HttpPost("SearchCourse")]
         public List<CourseDto> SearchCourse([FromBody] CourseDto courseSearchDto)
         {

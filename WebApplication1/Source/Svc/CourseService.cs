@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
+using System;
 using System.Collections.Generic;
 using WebApplication1.Context;
 using WebApplication1.Model;
+using WebApplication1.Model.Dto;
 using WebApplication1.Source.Db;
 
 namespace WebApplication1.Source.Svc
@@ -21,6 +23,14 @@ namespace WebApplication1.Source.Svc
 
         public void insertCourse(Course course)
         {
+            if (String.IsNullOrEmpty(course.CourseCode))
+            {
+                throw new Exception("Course code requried");
+            }
+            if (String.IsNullOrEmpty(course.DeptCode))
+            {
+                throw new Exception("Dept code requried");
+            }
             new CourseAccess().insertCourse(course);
         }
 

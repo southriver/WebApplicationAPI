@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <h1>testing</h1>
+
+    <div class="container">
+        <table id="table1" class="table table-dark">
+            <tr><th>ID</th><th>Dept</th><th>Course Code</th></tr>
+        </table>
+    </div>
+    Temperature is:   <span id="weather"></span>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $.ajax({
+                url: "/Course",
+                type: "get",
+                contentType: "application/json",
+                success: function (result, status, xhr) {
+                    console.log(result)
+                    var tableString = "";
+                    $.each(result, function (index, value) {
+                        tableString += "<tr><td>" + value.id + "</td><td>" + value.deptCode + "</td><td>" + value.courseCode + "</td></tr>";
+                    });
+                    $("#table1").append(tableString);
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr)
+                }
+            });
+
+            $.ajax({
+                url: "https://run.mocky.io/v3/1a576bac-f662-4cd2-a351-3fae92e4868d",
+                type: "get",
+                contentType: "application/json",
+                success: function (data, status, xhr) {
+                    console.log(data)
+                    $("#weather").text(data['temperature']);
+
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr)
+                }
+            });
+
+    });
+    </script>
+</body>
+</html>

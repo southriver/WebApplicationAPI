@@ -9,5 +9,6 @@ namespace WebApplication1.Model.Dto
         public String DeptCode { get; set; }
         public String CourseCode { get; set; }
         public String CourseDesc { get; set; }
+        
     }
 }

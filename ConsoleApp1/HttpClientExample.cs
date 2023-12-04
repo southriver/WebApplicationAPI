@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Microsoft.Extensions.Logging;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using WebApplication1.Model.Dto;
@@ -21,7 +22,7 @@ using (var client = new HttpClient())
         var response = client.PostAsync(baseAddress + "/Course", content).Result;
         //var token = tokenResponse.Content.ReadAsStringAsync().Result;
         var result = response.Content.ReadAsStringAsync().Result;
-
+        //Logger(result);
     }
     catch (Exception ex)
     {
