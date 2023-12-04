@@ -23,7 +23,7 @@ var clientOptions = new ServiceBusClientOptions()
 {
     TransportType = ServiceBusTransportType.AmqpWebSockets
 };
-client = new ServiceBusClient("Endpoint=sb://yasar4458.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=9DglPJIA6zJah7bvEm98r6PL2/zaXz6TS+ASbANuW7I=", clientOptions);
+client = new ServiceBusClient("yourConnectionString", clientOptions);
 sender = client.CreateSender("myqueue");
 
 // create a batch 

@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "TestProject
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClientToCallARestService", "ConsoleApp1\HttpClientToCallARestService.csproj", "{E96AE2C7-F765-46FA-A0A7-191E0E77B2C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueSender", "QueueSender\QueueSender.csproj", "{DBE2E688-B1DC-408A-920E-2F132DFDFEBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueueSender", "QueueSender\QueueSender.csproj", "{DBE2E688-B1DC-408A-920E-2F132DFDFEBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueReceive", "QueueReceive\QueueReceive.csproj", "{1864930D-B53C-43DE-BC77-1787B808C49D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{DBE2E688-B1DC-408A-920E-2F132DFDFEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBE2E688-B1DC-408A-920E-2F132DFDFEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBE2E688-B1DC-408A-920E-2F132DFDFEBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1864930D-B53C-43DE-BC77-1787B808C49D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1864930D-B53C-43DE-BC77-1787B808C49D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1864930D-B53C-43DE-BC77-1787B808C49D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1864930D-B53C-43DE-BC77-1787B808C49D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
