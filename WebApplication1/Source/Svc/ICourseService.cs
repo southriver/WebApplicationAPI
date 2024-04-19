@@ -7,7 +7,7 @@ namespace WebApplication1.Source.Svc
     {
         public List<Course> getCourses();
         public Course getCourseById(int id);
-        public void insertCourse(Course course);
+        public int insertCourse(Course course);
         public void updateCourse(Course course);
         public List<Course> searchCourse(Course course);
     }

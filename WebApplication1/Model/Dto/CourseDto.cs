@@ -11,4 +11,11 @@ namespace WebApplication1.Model.Dto
         public String CourseDesc { get; set; }
         
     }
+
+    public class CourseInsertResultDto 
+    {
+        public int Id { get; set; }
+        public String statusMessage { get; set; }
+
+    }
 }

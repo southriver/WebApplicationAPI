@@ -18,9 +18,10 @@ namespace WebApplication1.Source.Svc
 
         public int insertStudent(Student student);
 
-        public double calculateGPA(string tcKimlik);
+        //public double calculateGPA(string tcKimlik);
 
         public Task<double>  calculateGPAAsync(string tcKimlik);
+
 
     }
 }

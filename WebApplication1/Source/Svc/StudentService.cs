@@ -59,6 +59,7 @@ namespace WebApplication1.Source.Svc
             return access.insertStudent(student);
         }
 
+
         public double calculateGPA(string tcKimlik)
         {
             Student student = getStudentByTCKimlik(tcKimlik);
@@ -69,7 +70,6 @@ namespace WebApplication1.Source.Svc
             var rnd = new Random();
             return rnd.NextDouble() * 4;
         }
-
         public async Task<double> calculateGPAAsync(string tcKimlik)
         {
             // await callAnotherService

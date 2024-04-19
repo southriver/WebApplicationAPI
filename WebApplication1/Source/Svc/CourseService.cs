@@ -21,7 +21,7 @@ namespace WebApplication1.Source.Svc
             return new CourseAccess().getCourses();
         }
 
-        public void insertCourse(Course course)
+        public int insertCourse(Course course)
         {
             if (String.IsNullOrEmpty(course.CourseCode))
             {
@@ -31,7 +31,8 @@ namespace WebApplication1.Source.Svc
             {
                 throw new Exception("Dept code requried");
             }
-            new CourseAccess().insertCourse(course);
+            int id = new CourseAccess().insertCourse(course);
+            return id;
         }
 
         public List<Course> getCourses(string dept)

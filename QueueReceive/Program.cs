@@ -13,7 +13,7 @@ async Task MessageHandler(ProcessMessageEventArgs args)
 {
     string body = args.Message.Body.ToString();
     Console.WriteLine($"Received: {body}");
-
+    //perform your business logic here
     // complete the message. message is deleted from the queue. 
     await args.CompleteMessageAsync(args.Message);
 }
@@ -37,7 +37,7 @@ var clientOptions = new ServiceBusClientOptions()
 {
     TransportType = ServiceBusTransportType.AmqpWebSockets
 };
-client = new ServiceBusClient("yourConnectionString", clientOptions);
+client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>", clientOptions);
 
 // create a processor that we can use to process the messages
 // TODO: Replace the <QUEUE-NAME> placeholder

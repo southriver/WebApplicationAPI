@@ -103,7 +103,7 @@ namespace WebApplication1.Controllers
             StudentGPAResultDto ret = new StudentGPAResultDto();
             try
             {
-                ret.GPA  = _studentService.calculateGPA(gpaQuery.TCKimlik);
+                ret.GPA = _studentService.calculateGPA(gpaQuery.TCKimlik);
             }
             catch (Exception ex)
             {

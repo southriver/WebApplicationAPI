@@ -23,7 +23,7 @@ var clientOptions = new ServiceBusClientOptions()
 {
     TransportType = ServiceBusTransportType.AmqpWebSockets
 };
-client = new ServiceBusClient("yourConnectionString", clientOptions);
+client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>", clientOptions);
 sender = client.CreateSender("myqueue");
 
 // create a batch 

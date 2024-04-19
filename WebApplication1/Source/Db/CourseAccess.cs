@@ -14,6 +14,7 @@ namespace WebApplication1.Source.Db
         });
 
         public List<Course> getCourses() { 
+            // this is where you would write an SQL query to get courses
             return sampleCourses; 
         }
 
@@ -22,10 +23,12 @@ namespace WebApplication1.Source.Db
             return sampleCourses.Find(c => c.Id == id);
         }
 
-        public void insertCourse(Course course)
+        public int insertCourse(Course course)
         {
             validateCourse(course);
+            course.Id = sampleCourses[sampleCourses.Count - 1].Id + 1;
             sampleCourses.Add(course);
+            return course.Id;
         }
 
         public int deleteCourse(int id)

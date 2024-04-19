@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors.Infrastructure;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using Microsoft.Extensions.Logging;
@@ -45,24 +46,37 @@ namespace WebApplication1.Controllers
 
         // inserts a course 
         [HttpPost]
-        public IActionResult Post([FromBody] CourseDto courseDto)
+        [Authorize]
+        public CourseInsertResultDto Post([FromBody] CourseDto courseDto)
         {
 
-            StudentResultDto ret = new StudentResultDto();
+            CourseInsertResultDto ret = new CourseInsertResultDto();
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                ret.statusMessage = "Model is not valid";
+                return ret;
             }
             try
             {
-                _courseService.insertCourse(createCourse(courseDto));
-
+                ret.Id =  _courseService.insertCourse(createCourse(courseDto));
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                ret.statusMessage = ex.Message;
+                return ret;
             }
-            return Ok();
+            return ret;
+        }
+
+        [HttpPost("SearchCourse")]
+        public List<CourseDto> SearchCourse([FromBody] CourseDto courseSearchDto)
+        {
+            Course searchDto = createCourse(courseSearchDto);
+            List<Course> courses = _courseService.searchCourse(searchDto);
+
+            List<CourseDto> ret = new List<CourseDto>();
+            courses.ForEach(data => ret.Add(createDto(data)));
+            return ret;
         }
 
         //// updates a course with given id
@@ -94,16 +108,6 @@ namespace WebApplication1.Controllers
 
         // courseCode  = S  => 
 
-        [HttpPost("SearchCourse")]
-        public List<CourseDto> SearchCourse([FromBody] CourseDto courseSearchDto)
-        {
-            Course searchDto = createCourse(courseSearchDto);
-            List<Course> courses = _courseService.searchCourse(searchDto);
-
-            List<CourseDto> ret = new List<CourseDto>();
-            courses.ForEach(data => ret.Add(createDto(data)));
-            return ret;
-        }
 
         private CourseDto createDto(Course course)
         {
