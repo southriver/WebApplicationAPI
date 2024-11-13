@@ -36,11 +36,11 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost("GetAllWithPaging")]
-        public List<StudentDto> GetWithPaging(QueryWithPagingDto query)
+        public List<StudentDto> GetWithPaging(int PageNumber, int PageSize)
         {
             List<Student> datas = _studentService.getStudents();
-            List<Student> datasFiltered = datas.Skip((query.PageNumber - 1) * query.PageSize)
-                .Take(query.PageSize).ToList();
+            List<Student> datasFiltered = datas.Skip((PageNumber - 1) * PageSize)
+                .Take(PageSize).ToList();
 
             List<StudentDto> ret = new List<StudentDto>();
             datasFiltered.ForEach(data => ret.Add(createStudentDto(data)));

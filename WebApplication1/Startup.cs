@@ -10,6 +10,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -40,7 +41,7 @@ namespace WebApplication1
                                 {
                                     ValidateIssuer = true,
                                     ValidateAudience = true,
-                                    ValidateLifetime = true,
+                                    ValidateLifetime = true,                                    
                                     ValidateIssuerSigningKey = true,
                                     ValidIssuer = Configuration["Jwt:Issuer"],
                                     ValidAudience = Configuration["Jwt:Audience"],
@@ -69,6 +70,29 @@ namespace WebApplication1
             services.AddSwaggerGen(c =>
             {
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Please enter a valid token",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    BearerFormat = "JWT",
+                    Scheme = "Bearer"
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type=ReferenceType.SecurityScheme,
+                                Id="Bearer"
+                            }
+                        },
+                        new string[]{}
+                    }
+                });
             });
             services.AddMemoryCache();
             // add services here
@@ -103,6 +127,7 @@ namespace WebApplication1
             {
                 endpoints.MapControllers();
             });
+            // this is to serve static html files
             app.UseFileServer(new FileServerOptions
             {
                 FileProvider = new PhysicalFileProvider(

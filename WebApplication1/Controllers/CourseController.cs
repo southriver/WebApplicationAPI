@@ -30,6 +30,10 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IEnumerable<CourseDto> Get()
         {
+            /*
+             * SELECT * FROM course
+             * 
+             */
             List<Course> datas = _courseService.getCourses();
             List<CourseDto> ret = new List<CourseDto> ();
             datas.ForEach(data => ret.Add(createDto(data)));
